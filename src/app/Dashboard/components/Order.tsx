@@ -38,8 +38,8 @@ const Order = () => {
     },
   ];
   return (
-    <div className="w-[702px] h-[335px] bg-white rounded-[10px] my-7.5 mx-7.5">
-      <div className="flex justify-between items-start mt-6 mx-6">
+    <div className="w-[calc(100%-32px)] md:w-[702px] h-auto md:h-[335px] bg-white rounded-[10px] my-7.5 mx-4 md:mx-7.5 overflow-hidden">
+      <div className="flex justify-between items-start mt-6 mx-4 md:mx-6">
         <h2 className="text-lg font-bold leading-[100%] text-[#030229]">
           Recent Orders{" "}
         </h2>
@@ -47,76 +47,78 @@ const Order = () => {
           <ThreeDot />
         </span>
       </div>
-      <table className="w-full  border-collapse  mt-6">
-        <thead>
-          <tr className="text-[#030229] text-sm text-left font-normal border-b border-gray-100 ">
-            <th className="pb-3 pl-6 font-medium ">
-              <div className="flex items-center gap-2.5">
-                Tracking no <Arrow />
-              </div>
-            </th>
-            <th className="pb-3 font-medium">
-              <div className="flex items-center gap-2.5">
-                Product Name <Arrow />
-              </div>
-            </th>
-            <th className="pb-3 font-medium">
-              <div className="flex items-center gap-2.5">
-                Price
-                <Arrow />
-              </div>
-            </th>
-            <th className="pb-3 font-medium">
-              <div className="flex items-center gap-2.5">
-                Total Order
-                <Arrow />
-              </div>
-            </th>
-            <th className="pb-3 font-medium">Total Amount </th>
-          </tr>
-        </thead>
-        <tbody className="text-[#030229] font-medium ">
-          {orders.map((order, index) => (
-            <tr
-              key={index}
-              className="group hover:bg-gray-50 transition-colors "
-            >
-              <td className="py-2 text-sm pl-6 text-[#030229] font-normal">
-                {order.id}
-              </td>
-              <td className="py-2">
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center `}
-                  >
-                    <Image
-                      src={order.image}
-                      alt={order.name}
-                      width={30}
-                      height={30}
-                      className="w-7.5 h-7.5 object-contain"
-                    />
-                  </div>
-                  <span className="text-sm font-normal text-[#030229]">
-                    {order.name}
-                  </span>
+      <div className="overflow-x-auto no-scrollbar">
+        <table className="w-full border-collapse mt-6 min-w-[600px]">
+          <thead>
+            <tr className="text-[#030229] text-sm text-left font-normal border-b border-gray-100  ">
+              <th className="pb-3 pl-6 font-medium ">
+                <div className="flex items-center gap-2.5">
+                  Tracking no <Arrow />
                 </div>
-              </td>
-              <td className="py-4 text-sm text-[#030229] font-normal">
-                {order.price}
-              </td>
-              <td className="py-4">
-                <span className=" w-[61px]  h-[30px] rounded-[8px] font-bold bg-[#26C0E2]/20 text-[#26C0E2] text-sm flex items-center justify-center ">
-                  {order.totalOrder}
-                </span>
-              </td>
-              <td className="py-4 text-sm text-[#030229] font-normal ">
-                {order.totalAmount}
-              </td>
+              </th>
+              <th className="pb-3 font-medium">
+                <div className="flex items-center gap-2.5">
+                  Product Name <Arrow />
+                </div>
+              </th>
+              <th className="pb-3 font-medium">
+                <div className="flex items-center gap-2.5">
+                  Price
+                  <Arrow />
+                </div>
+              </th>
+              <th className="pb-3 font-medium">
+                <div className="flex items-center gap-2.5">
+                  Total Order
+                  <Arrow />
+                </div>
+              </th>
+              <th className="pb-3 font-medium">Total Amount </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="text-[#030229] font-medium ">
+            {orders.map((order, index) => (
+              <tr
+                key={index}
+                className="group hover:bg-gray-50 transition-colors "
+              >
+                <td className="py-2 text-sm pl-6 text-[#030229] font-normal">
+                  {order.id}
+                </td>
+                <td className="py-2">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`w-10 h-10 rounded-lg flex items-center justify-center `}
+                    >
+                      <Image
+                        src={order.image}
+                        alt={order.name}
+                        width={30}
+                        height={30}
+                        className="w-7.5 h-7.5 object-contain"
+                      />
+                    </div>
+                    <span className="text-sm font-normal text-[#030229]">
+                      {order.name}
+                    </span>
+                  </div>
+                </td>
+                <td className="py-4 text-sm text-[#030229] font-normal">
+                  {order.price}
+                </td>
+                <td className="py-4">
+                  <span className=" w-[61px]  h-[30px] rounded-[8px] font-bold bg-[#26C0E2]/20 text-[#26C0E2] text-sm flex items-center justify-center ">
+                    {order.totalOrder}
+                  </span>
+                </td>
+                <td className="py-4 text-sm text-[#030229] font-normal ">
+                  {order.totalAmount}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
