@@ -20,32 +20,26 @@ export interface Customer {
 
 const Page = () => {
   const [isAddCustomerOpen, setIsAddCustomerOpen] = useState(false);
-  const [selectedCustomer, setSelectedCustomer] = useState<Customer>({
-    id: 1,
-    name: "John Deo",
-    email: "johndoe2211@gmail.com",
-    phone: "+9847562301",
-    gender: "Male",
-    img: "/Images/group.png"
-  });
+  const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
 
   return (
-    <div className='flex '>
-        <div className='flex flex-col'>
+    <div className='flex flex-col md:flex-row gap-4 md:gap-0'>
+      <div className='flex flex-col w-full md:w-auto'>
 
         <Top onAddClick={() => setIsAddCustomerOpen(true)} />
-        <Detail onCustomerClick={setSelectedCustomer} selectedCustomerId={selectedCustomer.id}/>
+        <Detail onCustomerClick={setSelectedCustomer} selectedCustomerId={selectedCustomer?.id || null} />
+      </div>
+      {selectedCustomer && (
+        <div className='flex flex-col  md:w-[302px] md:ml-8 bg-white rounded-[10px] mx-4 md:mx-0'>
+          <Contact customer={selectedCustomer} />
+          <ContactInfo customer={selectedCustomer} />
+          <Performance />
+          <ProgressStats />
         </div>
-        <div className='flex flex-col w-[302px]  ml-8 bg-white rounded-[10px]'>
-        <Contact customer={selectedCustomer}/>
-        <ContactInfo customer={selectedCustomer}/>
-        <Performance/>
-        <ProgressStats/>
-
-        </div>
-        <AddCustomer isOpen={isAddCustomerOpen} 
-          onClose={() => setIsAddCustomerOpen(false)} 
-        />
+      )}
+      <AddCustomer isOpen={isAddCustomerOpen}
+        onClose={() => setIsAddCustomerOpen(false)}
+      />
     </div>
   )
 }

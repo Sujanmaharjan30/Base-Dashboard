@@ -14,11 +14,11 @@ const Top = ({ activeView, setActiveView }: TopProps) => {
         "Year",
     ]
   return (
-    <div className='mt-9 flex justify-start items-center ml-8.5 ' style={{fontFamily:"Nunito"}}>
+    <div className='mt-23 md:mt-9 flex flex-col md:flex-row justify-start md:items-center gap-4 md:gap-0 ml-4 md:ml-8.5 ' style={{fontFamily:"Nunito"}}>
         <h1 className='text-2xl leading-[100%] text-[#030229] font-bold'>
             Calendar
         </h1>
-        <div className='w-[359px] flex justify-center items-center gap-5 ml-[702px]'>
+        <div className='w-[359px] flex md:justify-center items-center gap-5 ml-0 md:ml-[702px]'>
             {item.map((items,id)=>(
                 <button 
                 key={id} 

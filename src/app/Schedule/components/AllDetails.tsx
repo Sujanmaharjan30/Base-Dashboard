@@ -59,90 +59,89 @@ const AllDetails = () => {
     );
   };
 
- 
+
 
   return (
-    <div className="mt-7.5 mb-7.5 w-[886px]" style={{ fontFamily: "Nunito" }}>
-      {/* Table Header */}
-      <div className="flex items-center gap-4 pb-3 border-b border-gray-200 px-4">
-        <input
-          type="checkbox"
-          checked={selectedEvents.length === events.length && events.length > 0}
-          onChange={toggleSelectAll}
-          className="w-4 h-4 cursor-pointer"
-        />
-        <div className="flex items-center gap-2 flex-1">
-          <span className="text-sm font-semibold text-[#030229]">Date</span>
-          <Arrow />
-        </div>
-        <div className="flex items-center gap-2 w-[120px]">
-          <span className="text-sm font-semibold text-[#030229]">Time</span>
-          <Arrow />
-        </div>
-        <div className="flex items-center gap-2 flex-1">
-          <span className="text-sm font-semibold text-[#030229]">Location</span>
-          <Arrow />
-        </div>
-        <div className="w-[60px]"></div>
-      </div>
+    <div className="mt-7.5 mb-7.5 md:w-[886px] mx-4 md:mx-0" style={{ fontFamily: "Nunito" }}>
+      <div className="overflow-x-auto no-scrollbar">
+        <div className="min-w-[886px]">
 
-      {/* Event Rows */}
-      <div className="space-y-3 mt-3">
-        {events.map((event) => (
-          <div
-            key={event.id}
-            className="flex items-center gap-4 p-3 h-[70px] bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow  hover:scale-[1.02] hover:z-10 cursor-pointer"
-          >
-            {/* Checkbox */}
+
+          <div className="flex items-center gap-4 pb-3 border-b border-gray-200 px-4">
             <input
               type="checkbox"
-              checked={selectedEvents.includes(event.id)}
-              onChange={() => toggleEventSelection(event.id)}
+              checked={selectedEvents.length === events.length && events.length > 0}
+              onChange={toggleSelectAll}
               className="w-4 h-4 cursor-pointer"
             />
-
-            {/* Date */}
             <div className="flex items-center gap-2 flex-1">
-              <Calendar1 />
-              <span className="text-sm text-[#030229]">{event.date}</span>
+              <span className="text-sm font-semibold text-[#030229]">Date</span>
+              <Arrow />
             </div>
-
-            {/* Time */}
             <div className="flex items-center gap-2 w-[120px]">
-              <ClockIcon />
-              <span className="text-sm text-[#030229]">{event.time}</span>
+              <span className="text-sm font-semibold text-[#030229]">Time</span>
+              <Arrow />
             </div>
-
-            {/* Location */}
             <div className="flex items-center gap-2 flex-1">
-              <span className="px-4 py-1 h-[45px] w-[171px] bg-[#ACA9FF]/20 text-[#605BFF] rounded-full text-sm font-semibold flex gap-[14px] items-center ">
-                <LocationIcon />
-                {event.location}
-              </span>
+              <span className="text-sm font-semibold text-[#030229]">Location</span>
+              <Arrow />
             </div>
-
-            {/* Action Icons */}
-            <div className="flex items-center gap-4 w-[100px] justify-end">
-              <button
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FFF8E6] transition-all cursor-pointer"
-              >
-                {/* If your EditIcon is just the path, the group-hover can change its color */}
-                <span className="text-[#FFB800] group-hover:text-white transition-colors">
-                  <EditIcon1 />
-                </span>
-              </button>
-
-              <button
-        
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FFF0F0] transition-all cursor-pointer"
-              >
-                <span className="text-[#FF4B4B] group-hover:text-white transition-colors">
-                  <DeleteIcon1 />
-                </span>
-              </button>
-            </div>
+            <div className="w-[60px]"></div>
           </div>
-        ))}
+
+          <div className="space-y-3 mt-3">
+            {events.map((event) => (
+              <div
+                key={event.id}
+                className="flex items-center gap-4 p-3 h-[70px] bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow  hover:scale-[1.02] hover:z-10 cursor-pointer"
+              >
+                {/* Checkbox */}
+                <input
+                  type="checkbox"
+                  checked={selectedEvents.includes(event.id)}
+                  onChange={() => toggleEventSelection(event.id)}
+                  className="w-4 h-4 cursor-pointer"
+                />
+
+                <div className="flex items-center gap-2 flex-1">
+                  <Calendar1 />
+                  <span className="text-sm text-[#030229]">{event.date}</span>
+                </div>
+
+                <div className="flex items-center gap-2 w-[120px]">
+                  <ClockIcon />
+                  <span className="text-sm text-[#030229]">{event.time}</span>
+                </div>
+
+                <div className="flex items-center gap-2 flex-1">
+                  <span className="px-4 py-1 h-[45px] w-[171px] bg-[#ACA9FF]/20 text-[#605BFF] rounded-full text-sm font-semibold flex gap-[14px] items-center ">
+                    <LocationIcon />
+                    {event.location}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-4 w-[100px] justify-end">
+                  <button
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FFF8E6] transition-all cursor-pointer"
+                  >
+                    <span className="text-[#FFB800] group-hover:text-white transition-colors">
+                      <EditIcon1 />
+                    </span>
+                  </button>
+
+                  <button
+
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FFF0F0] transition-all cursor-pointer"
+                  >
+                    <span className="text-[#FF4B4B] group-hover:text-white transition-colors">
+                      <DeleteIcon1 />
+                    </span>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

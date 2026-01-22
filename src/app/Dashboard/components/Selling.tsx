@@ -32,7 +32,7 @@ const Selling = () => {
   };
   return (
     <div
-      className="w-[430px] h-[335px] bg-white mt-8 rounded-[10px] "
+      className="w-[calc(100%-32px)] md:w-[430px] h-[335px] bg-white my-4 md:my-0 mt-0 md:mt-8 rounded-[10px] mx-4 md:mx-0"
       style={{ fontFamily: "Nunito" }}
     >
       <div className="flex justify-between items-start mt-6 mx-6">

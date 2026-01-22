@@ -10,9 +10,9 @@ const page = () => {
   return (
     <div>
         <Top/>
-        <div className='flex '>
+        <div className='flex flex-col md:flex-row'>
 
-        <div className='flex flex-col w-[266px] mx-7.5 mt-7.5 bg-white rounded-[10px]'>
+        <div className='flex flex-col md:w-[266px] mx-4 md:mx-7.5 mt-7.5 bg-white rounded-[10px]'>
 <Create/>
 <Calender/>
 <People/>

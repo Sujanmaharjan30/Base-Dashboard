@@ -8,19 +8,19 @@ import Selling from './components/Selling'
 
 const page = () => {
   return (
-    <div className=' h-auto w-[1222px]'>
-        <Top/>
-        <Application/>
-        <div className='flex '>
-            <Reports/>
-            <Analytics/>
+    <div className=' h-auto w-full md:w-[1222px]'>
+      <Top />
+      <Application />
+      <div className='flex flex-col md:flex-row gap-4 md:gap-0 '>
+        <Reports />
+        <Analytics />
 
-        </div>
-        <div className='flex '>
-           <Order/>
-           <Selling/>
+      </div>
+      <div className='flex flex-col md:flex-row '>
+        <Order />
+        <Selling />
 
-        </div>
+      </div>
 
     </div>
   )
